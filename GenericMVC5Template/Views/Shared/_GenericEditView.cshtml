@@ -1,0 +1,65 @@
+﻿@using GenericMVC5Template.Lib.Classes
+@model GenericMVC5Template.Lib.Classes.GenericLookupModel
+    
+@{
+    Layout = null;
+}
+
+@section styles
+{
+    <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css">
+    <link href="~/Content/_addons/bootstrap-multiselect/less/bootstrap-multiselect.less" rel="stylesheet" />
+}
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">Edit</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        @Html.DisplayNameFor(x=>Model.value)
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        @Html.EditorFor(x=>Model.value)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+
+@section scripts
+{
+    <script src="~/Content/_addons/datatables/jquery.dataTables.js"></script>
+    <script src="~/Content/_addons/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/Content/_addons/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+    
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            
+
+            $('.mydata-table').dataTable({
+                stateSave: true
+                ,renderer: "bootstrap"
+            });
+            $('select').multiselect({
+                buttonClass: 'btn btn-link'
+            });
+        });
+
+        //function editLookup(id) {
+        //    $(this).modal('show');
+        //}
+
+    </script>
+}
