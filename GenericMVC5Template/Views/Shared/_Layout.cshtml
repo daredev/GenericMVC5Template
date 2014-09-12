@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Generic MVC 5 Template</title>
     @Styles.Render("~/bundles/css")
+    @RenderSection("styles", false)
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -24,6 +25,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    
+                    <li>@Html.ActionLink("Country Lookup Management","Index", "Country")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Generic MVC 5 Template</p>
+            <p>&copy; @DateTime.Now.Year - Generic MVC 5 Template </p>
         </footer>
     </div>
 
